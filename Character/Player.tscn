@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cvs8aba34p1nn"]
+[gd_scene load_steps=33 format=3 uid="uid://cvs8aba34p1nn"]
 
 [ext_resource type="Script" uid="uid://dvtares2pkled" path="res://Script/player.gd" id="1_lgt04"]
 [ext_resource type="Texture2D" uid="uid://du5l14eoqlnp4" path="res://Image/Stick Figure Character Sprites 2D/Fighter sprites/fighter_Idle_0001.png" id="2_im8re"]
@@ -30,16 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://bcnhbeqq6l0fu" path="res://Image/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0014.png" id="28_ip21h"]
 [ext_resource type="Texture2D" uid="uid://jnk734h7fc1w" path="res://Image/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0015.png" id="29_jcnj2"]
 [ext_resource type="Texture2D" uid="uid://doagokvt8yt7s" path="res://Image/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0016.png" id="30_710mb"]
-
-[sub_resource type="Curve" id="Curve_lgt04"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 50.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_schp4"]
-_limits = [0.0, 300.0, 0.0, 0.66]
-_data = [Vector2(0, 0), 0.0, 2880.0, 0, 0, Vector2(0.33, 300), 0.0, 0.0, 0, 0, Vector2(0.66, 0), 0.0, 0.0, 0, 0]
-point_count = 3
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_schp4"]
 animations = [{
@@ -152,22 +142,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pusnx"]
-size = Vector2(48, 84)
+size = Vector2(24, 42)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lgt04")
-move_curve = SubResource("Curve_lgt04")
-jump_curve = SubResource("Curve_schp4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -62)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -31)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_schp4")
 animation = &"idle"
 autoplay = "idle"
-frame = 6
-frame_progress = 0.928785
+frame = 3
+frame_progress = 0.781532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -42)
+position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_pusnx")

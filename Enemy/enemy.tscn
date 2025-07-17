@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://62q10bg5tqww"]
+
+[ext_resource type="Script" uid="uid://bcybu0arc1dx7" path="res://Enemy/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dvlfqcygcrbra" path="res://icon.svg" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_4gyqm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qi2p4"]
+gradient = SubResource("Gradient_4gyqm")
+width = 384
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_iifgy"]
+offsets = PackedFloat32Array(0.00704225)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epg4t"]
+gradient = SubResource("Gradient_iifgy")
+width = 384
+height = 32
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="AttackSpawnPoint" type="Node2D" parent="."]
+position = Vector2(-108, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -191.0
+offset_top = -152.0
+offset_right = 193.0
+offset_bottom = -120.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_qi2p4")
+texture_progress = SubResource("GradientTexture2D_epg4t")

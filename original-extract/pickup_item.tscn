@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://imf5lq5ciyvw"]
+
+[ext_resource type="Script" uid="uid://8wttkb0it7d5" path="res://pickup_item.gd" id="1_iedf3"]
+[ext_resource type="Texture2D" uid="uid://bvlx6gwck2m2f" path="res://下載__1_-removebg-preview.png" id="1_oimud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fl140"]
+radius = 11.0454
+
+[node name="PickupItem" type="Area2D"]
+script = ExtResource("1_iedf3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(0.183398, 0.180412)
+texture = ExtResource("1_oimud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fl140")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

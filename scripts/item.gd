@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func throw(vec):
 	reparent(item_node)
-	rotation_degrees = 90
+	rotation_degrees = 90 if vec.x > 0.0 else -90
 	velocity = vec
 	set_collision_layer_value(2, true)
 	in_throw = true

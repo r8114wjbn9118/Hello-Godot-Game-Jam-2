@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcve3hepu83ix"]
+
+[ext_resource type="Texture2D" uid="uid://dns6davlxhmqt" path="res://assets/item/furniture_16x16.png" id="1_4gq7n"]
+[ext_resource type="Script" uid="uid://cn00ticeokr4y" path="res://scripts/item.gd" id="1_s8enn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8enn"]
+size = Vector2(14, 14)
+
+[node name="Item" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_s8enn")
+
+[node name="Image" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_4gq7n")
+hframes = 5
+vframes = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s8enn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s8enn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
